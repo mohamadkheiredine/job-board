@@ -26,7 +26,7 @@ export default function Home() {
             We provide online instant cash loans with quick approval that suit
             your term length.
           </p>
-          <Link href="/applyJobs">
+          <Link href="/candidateDashboard">
             <Button className="sm:w-24 md:w-40 lg:w-52 justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-xs sm:text-sm md:text-base lg:text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus-ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Apply For A Job
             </Button>
