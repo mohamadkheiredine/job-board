@@ -1,13 +1,22 @@
 import Link from "next/link";
 import JobsGrid from "./jobsGrid";
 import { Suspense } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../firebase/clientApp";
+
 
 async function getJobs() {
-  const res = await fetch("http://localhost:3000/api/jobs", {
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error("Failed to fetch data");
-  return res.json();
+  const jobCollectionRef = collection(firestore, "jobs");
+  const querySnapshot = await getDocs(jobCollectionRef);
+  const jobData = querySnapshot.docs.map(doc => ({
+    id: doc.data().id as number,
+    job_title: doc.data().job_title as string,
+    location: doc.data().location as string,
+    salary: doc.data().salary as string,
+    slug: doc.data().slug as string,
+  }));
+
+  return jobData;
 }
 
 async function Jobs() {

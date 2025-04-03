@@ -56,7 +56,7 @@ export default function CandidateDashboardPage() {
         <form
           action={formAction}
           ref={formRef}
-          className="space-y-8 flex justify-center items-center flex-col"
+          className="space-y-8 flex justify-center items-center flex-col mb-5"
           onSubmit={(evt) => {
             evt.preventDefault();
             startTransition(() => {

@@ -1,6 +1,8 @@
 'use server';
 
+import { firestore } from "@/app/firebase/clientApp";
 import { jobSchema } from "@/app/models/formSchema";
+import { addDoc, collection } from "firebase/firestore";
 import { revalidatePath } from "next/cache";
 
 export type FormState = {
@@ -18,29 +20,25 @@ interface jobDataProp {
 }
 
 async function postJobData(jobData: jobDataProp) {
+
   try {
-    const response = await fetch("http://localhost:3000/api/jobs", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jobData),
-    });
-
-    if (!response.ok) {
-      const error = await response.json();
-      return { success: false, message: error.message };
+    // Reference to the Firestore collection
+    const jobCollectionRef = collection(firestore, 'jobs'); // 'jobPostings' is the collection name
+    
+    // Add a new document with the job data
+    const docRef = await addDoc(jobCollectionRef, jobData);
+    if (docRef) {
+      return true;
     }
-
-    return { success: true, data: await response.json() };
-  } catch (error) {
-    console.error('Error while posting job:', error);
-    return { success: false, message: 'Network or server error' };
+  
+  } catch (e) {
+    console.error("Error adding document: ", e);
+    throw new Error("Error adding document");
   }
 }
 
 export default async function onSubmitAction(
-  prevState: FormState,
+  _: FormState,
   formData: FormData
 ): Promise<FormState> {
   const job = {
@@ -60,10 +58,10 @@ export default async function onSubmitAction(
   }
 
   const result = await postJobData(job);
-  if (result.success) {
+  if (result) {
     revalidatePath('/jobs');
     return { success: true, message: "Job added successfully" };
   }
 
-  return { success: false, message: result.message };
+  return { success: false, message: "Error posting the data" };
 }

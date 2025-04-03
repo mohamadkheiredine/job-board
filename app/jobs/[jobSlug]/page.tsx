@@ -1,4 +1,6 @@
 import { Button } from "@/app/components/ui/button";
+import { firestore } from "@/app/firebase/clientApp";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -7,16 +9,30 @@ export default async function jobDetailPage({
 }: {
   params: Promise<{ jobSlug: string }>; //like the name of the folder
 }) {
-  const resolvedParams = await params;
-  const slug = resolvedParams.jobSlug;
+  // const resolvedParams = await params;
+  // const slug = resolvedParams.jobSlug;
+  const slug = (await params).jobSlug;
 
   const getJobBySlug = async () => {
-    const res = await fetch(`http://localhost:3000/api/jobs/${slug}`, {
-      cache: "no-store",
-    });
+    const jobCollectionRef = collection(firestore, "jobs");
+    const q = query(jobCollectionRef, where("slug", "==", slug));
+    const querySnapshot = await getDocs(q);
 
-    if (!res.ok) throw new Error("Failed to fetch job");
-    return res.json();
+    const currentSlug = querySnapshot.docs.map(doc => doc.data().slug);
+    const job = querySnapshot.docs.map((doc) => {
+      if (doc.data().slug === currentSlug) {
+        return {
+          id: doc.data().id as number, 
+          job_title: doc.data().job_title as string,
+          location: doc.data().location as string,
+          salary: doc.data().salary as string,
+          slug: doc.data().slug as string,
+        }
+      }
+    })
+    console.log("the job in the slug page is: ", job);
+
+    return job[0];
   };
 
   const job = await getJobBySlug();
