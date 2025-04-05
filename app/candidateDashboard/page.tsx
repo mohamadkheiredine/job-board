@@ -36,7 +36,7 @@ export default function CandidateDashboardPage() {
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <>
+    <div className="flex items-center justify-center w-full h-full">
       <Form {...form}>
         {state?.message !== "" && !state.issues && (
           <div className="text-red-500 text-center font-bold">{state.message}</div>
@@ -125,6 +125,6 @@ export default function CandidateDashboardPage() {
           </Button>
         </form>
       </Form>
-    </>
+    </div>
   );
 }

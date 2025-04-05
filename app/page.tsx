@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="relative flex min-h-screen items-center justify-center">
+      <div className="relative flex flex-col sm:flex-row lg:flex-col min-h-screen items-center justify-center">
         <div className="flex items-center justify-center w-full md:w-6/12 p-4">
           <Image
             src={boardImg}
