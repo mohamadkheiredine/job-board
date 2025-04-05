@@ -79,7 +79,7 @@ export default async function jobDetailPage({
         <p className="text-base sm:text-lg font-normal text-gray-700 max-w-lg leading-relaxed">
           Start a new {job.job_title} position by applying here
         </p>
-        <Link href="/candidateDashboard">
+        <Link href="/candidate_dashboard">
           <Button className="py-2 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Apply Now
           </Button>

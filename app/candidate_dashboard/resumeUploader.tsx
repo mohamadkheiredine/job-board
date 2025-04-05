@@ -52,7 +52,7 @@ export default function ResumeUploader() {
   return (
     <div>
       <label htmlFor="resume">Your Resume</label>
-      <div className="flex items-start gap-6 mb-4">
+      <div className="flex sm:items-start gap-6 mb-4 flex-col">
         <div className="w-40 h-40 border-2 border-[#a4abb9] flex justify-center items-center text-center text-[#a4abb9] relative">
           {!pickedFile && <p className="m-0 p-4">No Resume Entered Yet.</p>}
           {pickedFile && pickedFile.type === 'application/pdf' && (
@@ -79,7 +79,7 @@ export default function ResumeUploader() {
         />
 
         <Button
-          className="justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
           type="button"
           onClick={handlePickClick}
         >

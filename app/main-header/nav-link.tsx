@@ -1,26 +1,29 @@
 "use client";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
 interface Prop {
+  className: string,
   href: string;
   children: ReactNode;
 }
 
-export default function NavLink({ href, children }: Prop) {
+export default function NavLink({ className, href, children }: Prop) {
   const path = usePathname();
   return (
     <Link
-  href={href}
-  className={
-    path.startsWith(href)
-      ? "text-[#ddd6cb] font-bold px-4 py-2 rounded-lg bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent shadow-[0_0_18px_rgba(0,_0,_0,_0.8)]"
-      : "text-[#ddd6cb] font-bold px-4 py-2 rounded-lg text-sm sm:text-base md:text-lg lg:text-xl"
-  }
->
-  {children}
-</Link>
-
+      href={href}
+      className={cn(
+        `font-bold px-4 py-2 rounded-lg flex items-center justify-center text-center min-w-[140px]`,
+        path.startsWith(href)
+          ? `text-white bg-blue-600`
+          : "text-[#ddd6cb] text-sm sm:text-base md:text-lg lg:text-xl",
+        className
+      )}
+    >
+      {children}
+    </Link>
   );
 }

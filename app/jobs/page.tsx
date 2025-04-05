@@ -28,17 +28,19 @@ async function Jobs() {
 const JobsPage = () => {
   return (
     <>
-      <header className="gap-12 mx-auto my-12 mb-20 w-[90%] max-w-[75rem] text-black text-xl">
-        <h1>Our jobs are here for you</h1>
-        <p className="m-0 text-black">Choose your new job</p>
+      <header className="gap-12 mx-auto my-12 mb-20 w-[90%] max-w-[75rem] text-black text-xl sm:mt-24 mt-20">
+        <h1>Our jobs are <span className="text-white sm:text-black">here for you</span></h1>
+        <div className="flex flex-col gap-2">
+        <p className="m-0 text-black">Choose your new <span className="text-white sm:text-black">job</span></p>
         <p className="m-0">
           <Link
-            href="/jobs/employerDashboard"
-            className="inline-block mt-4 px-4 py-2 rounded-md bg-gradient-to-r from-[#1e90ff] to-[#007bff] text-white font-bold no-underline"
+            href="/jobs/employer_dashboard"
+            className="text-sm mt-4 px-4 py-2 rounded-md bg-gradient-to-r from-[#1e90ff] to-[#007bff] text-white font-bold no-underline"
           >
             Post a new job opportunity
           </Link>
         </p>
+        </div>
       </header>
 
       <div>
