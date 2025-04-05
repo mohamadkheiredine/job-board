@@ -36,7 +36,7 @@ export default function CandidateDashboardPage() {
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <div className="flex items-center justify-center mb-5">
+    <div className="flex items-center justify-center mb-5 sm:w-full h-full">
       <Form {...form}>
         {state?.message !== "" && !state.issues && (
           <div className="text-red-500 text-center font-bold">{state.message}</div>
@@ -56,7 +56,7 @@ export default function CandidateDashboardPage() {
         <form
           action={formAction}
           ref={formRef}
-          className="space-y-8 flex flex-col items-center justify-center mt-28"
+          className="space-y-8 flex flex-col items-center justify-center mt-28 sm:items-center sm:flex-col sm:mb-5"
           onSubmit={(evt) => {
             evt.preventDefault();
             startTransition(() => {

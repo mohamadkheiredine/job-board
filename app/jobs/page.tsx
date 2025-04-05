@@ -35,7 +35,7 @@ const JobsPage = () => {
         <p className="m-0">
           <Link
             href="/jobs/employer_dashboard"
-            className="text-sm mt-4 px-4 py-2 rounded-md bg-gradient-to-r from-[#1e90ff] to-[#007bff] text-white font-bold no-underline"
+            className="sm:inline-block sm:text-lg text-sm mt-4 px-4 py-2 rounded-md bg-gradient-to-r from-[#1e90ff] to-[#007bff] text-white font-bold no-underline"
           >
             Post a new job opportunity
           </Link>

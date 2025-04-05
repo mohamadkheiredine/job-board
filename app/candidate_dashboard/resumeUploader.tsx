@@ -52,7 +52,7 @@ export default function ResumeUploader() {
   return (
     <div>
       <label htmlFor="resume">Your Resume</label>
-      <div className="flex sm:items-start gap-6 mb-4 flex-col">
+      <div className="flex sm:items-start gap-6 mb-4 flex-col sm:flex-row">
         <div className="w-40 h-40 border-2 border-[#a4abb9] flex justify-center items-center text-center text-[#a4abb9] relative">
           {!pickedFile && <p className="m-0 p-4">No Resume Entered Yet.</p>}
           {pickedFile && pickedFile.type === 'application/pdf' && (
