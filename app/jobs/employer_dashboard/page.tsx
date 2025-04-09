@@ -45,80 +45,82 @@ export default function EmployerDashboardPage() {
 
   return (
     <div className="flex justify-center items-center">
-      <Form {...form}>
-        <form
-          action={formAction}
-          ref={formRef}
-          className="space-y-8 flex flex-col items-center justify-center mt-28"
-        >
-          <div className="flex gap-2">
-            <FormField
-              name="job_title"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Job Title</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter job title" {...field} />
-                  </FormControl>
-                  <FormDescription>Your job title</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className="flex gap-2">
-            <FormField
-              name="location"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Location</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter job location" {...field} />
-                  </FormControl>
-                  <FormDescription>Job Location</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className="flex gap-2">
-            <FormField
-              name="salary"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Salary</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter job salary" {...field} />
-                  </FormControl>
-                  <FormDescription>Job Salary</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className="flex gap-2">
-            <FormField
-              name="slug"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Job Slug</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter job slug" {...field} />
-                  </FormControl>
-                  <FormDescription>Job Slug is like job name</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <ButtonSubmit />
-        </form>
-        {state.message && <p>{state.message}</p>}
-      </Form>
+      <div className="flex items-center justify-center p-4 border-0 sm:border rounded-xl sm:p-12 sm:mt-28 sm:shadow sm:backdrop-blur">
+        <Form {...form}>
+          <form
+            action={formAction}
+            ref={formRef}
+            className="flex flex-col items-center justify-center gap-3 mt-28 sm:mt-0"
+          >
+            <div className="flex gap-2">
+              <FormField
+                name="job_title"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Job Title</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter job title" {...field} />
+                    </FormControl>
+                    <FormDescription>Your job title</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="flex gap-2">
+              <FormField
+                name="location"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Location</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter job location" {...field} />
+                    </FormControl>
+                    <FormDescription>Job Location</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="flex gap-2">
+              <FormField
+                name="salary"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Salary</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter job salary" {...field} />
+                    </FormControl>
+                    <FormDescription>Job Salary</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="flex gap-2">
+              <FormField
+                name="slug"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Job Slug</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter job slug" {...field} />
+                    </FormControl>
+                    <FormDescription>Job Slug is like job name</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <ButtonSubmit />
+          </form>
+          {state.message && <p>{state.message}</p>}
+        </Form>
+      </div>
     </div>
   );
 }

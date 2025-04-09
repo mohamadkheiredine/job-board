@@ -7,35 +7,41 @@ import { notFound } from "next/navigation";
 export default async function jobDetailPage({
   params,
 }: {
-  params: Promise<{ jobSlug: string }>; //like the name of the folder
+  params: Promise<{ jobSlug: string }>
 }) {
-  // const resolvedParams = await params;
-  // const slug = resolvedParams.jobSlug;
   const slug = (await params).jobSlug;
+  console.log("the slug is: ", slug);
 
-  const getJobBySlug = async () => {
-    const jobCollectionRef = collection(firestore, "jobs");
-    const q = query(jobCollectionRef, where("slug", "==", slug));
-    const querySnapshot = await getDocs(q);
-
-    const currentSlug = querySnapshot.docs.map(doc => doc.data().slug);
-    const job = querySnapshot.docs.map((doc) => {
-      if (doc.data().slug === currentSlug) {
+  const getJobBySlug = async (slug: string) => {
+    try {
+      const jobCollectionRef = collection(firestore, "jobs");
+  
+      const q = query(jobCollectionRef, where("slug", "==", slug));
+  
+      const querySnapshot = await getDocs(q);
+  
+      if (!querySnapshot.empty) {
+        const doc = querySnapshot.docs[0];
+        console.log("The job document fetched: ", doc.data());
+  
         return {
-          id: doc.data().id as number, 
+          id: doc.data().id as number,
           job_title: doc.data().job_title as string,
           location: doc.data().location as string,
           salary: doc.data().salary as string,
           slug: doc.data().slug as string,
-        }
+        };
+      } else {
+        console.log("No job found with that slug.");
       }
-    })
-    console.log("the job in the slug page is: ", job);
-
-    return job[0];
+    } catch (error) {
+      console.error("Error fetching job by slug: ", error);
+      return null;
+    }
   };
+  
 
-  const job = await getJobBySlug();
+  const job = await getJobBySlug(slug);
   if (!job) {
     notFound();
   }
@@ -80,7 +86,7 @@ export default async function jobDetailPage({
           Start a new {job.job_title} position by applying here
         </p>
         <Link href="/candidate_dashboard">
-          <Button className="py-2 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <Button className="py-2 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer">
             Apply Now
           </Button>
         </Link>

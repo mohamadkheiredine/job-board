@@ -36,27 +36,32 @@ export default function CandidateDashboardPage() {
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <div className="flex items-center justify-center mb-5 sm:w-full h-full">
+    <div className="flex items-center justify-center mb-5 sm:w-full h-full flex-col mt-11">
+      <div className='mt-10 flex items-center justify-center p-4 border-0 sm:border rounded-xl sm:p-12 sm:mt-28 sm:shadow sm:backdrop-blur'>
       <Form {...form}>
-        {state?.message !== "" && !state.issues && (
-          <div className="text-red-500 text-center font-bold">{state.message}</div>
-        )}
-        {state?.issues && (
-          <div className="text-red-500">
-            <ul>
-              {state.issues.map((issue) => (
-                <li key={issue} className="flex gap-1">
-                  <X fill="red" />
-                  {issue}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className="mt-28"> 
+          {state?.message !== "" && !state.issues && (
+            <div className="text-red-500 text-center font-bold">
+              {state.message}
+            </div>
+          )}
+          {state?.issues && (
+            <div className="text-red-500">
+              <ul>
+                {state.issues.map((issue) => (
+                  <li key={issue} className="flex gap-1">
+                    <X fill="red" />
+                    {issue}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
         <form
           action={formAction}
           ref={formRef}
-          className="space-y-8 flex flex-col items-center justify-center mt-28 sm:items-center sm:flex-col sm:mb-5"
+          className="space-y-8 flex flex-col items-center justify-center sm:items-center sm:flex-col sm:mb-5"
           onSubmit={(evt) => {
             evt.preventDefault();
             startTransition(() => {
@@ -119,12 +124,13 @@ export default function CandidateDashboardPage() {
           {state.message && <p>{state.message}</p>}
           <Button
             type="submit"
-            className="py-2 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="py-2 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
           >
             Submit
           </Button>
         </form>
       </Form>
+      </div>
     </div>
   );
 }

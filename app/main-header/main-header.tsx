@@ -14,7 +14,6 @@ export default function MainHeader() {
 
   useEffect(() => {
     const handleScrolling = () => {
-      console.log("herwe");
       setIsScrolled(window.scrollY > 10);
     };
 
@@ -41,7 +40,7 @@ export default function MainHeader() {
       {/* Header section */}
       <header
         className={`fixed top-0 left-0 w-full p-2 flex justify-between items-center z-50  ${
-          isScrolled ? " backdrop-blur shadow" : ""
+          isScrolled ? "backdrop-blur shadow" : ""
         }`}
       >
         <Logo />
@@ -103,10 +102,10 @@ export default function MainHeader() {
               >
                 <ul className="space-y-2">
                   <li>
-                    <NavLink href="/jobs" className="text-black flex items-center whitespace-nowrap text-sm text-center">Browse Jobs</NavLink>
+                    <NavLink href="/jobs" className="text-black flex items-center whitespace-nowrap text-sm text-center" onClick={toggleMenu}>Browse Jobs</NavLink>
                   </li>
                   <li>
-                    <NavLink href="/candidate_dashboard" className="text-black text-sm flex items-center whitespace-nowrap text-center">
+                    <NavLink href="/candidate_dashboard" className="text-black text-sm flex items-center whitespace-nowrap text-center" onClick={toggleMenu}>
                       Apply for a Job
                     </NavLink>
                   </li>

@@ -7,10 +7,11 @@ import { ReactNode } from "react";
 interface Prop {
   className: string,
   href: string;
+  onClick?: () => void,
   children: ReactNode;
 }
 
-export default function NavLink({ className, href, children }: Prop) {
+export default function NavLink({ onClick, className, href, children }: Prop) {
   const path = usePathname();
   return (
     <Link
@@ -22,6 +23,7 @@ export default function NavLink({ className, href, children }: Prop) {
           : "text-[#ddd6cb] text-sm sm:text-base md:text-lg lg:text-xl",
         className
       )}
+      onClick={onClick}
     >
       {children}
     </Link>

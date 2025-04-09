@@ -4,6 +4,7 @@ import { firestore } from "@/app/firebase/clientApp";
 import { jobSchema } from "@/app/models/formSchema";
 import { addDoc, collection } from "firebase/firestore";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export type FormState = {
   success: boolean;
@@ -60,7 +61,7 @@ export default async function onSubmitAction(
   const result = await postJobData(job);
   if (result) {
     revalidatePath('/jobs');
-    return { success: true, message: "Job added successfully" };
+    redirect("/jobs");
   }
 
   return { success: false, message: "Error posting the data" };
