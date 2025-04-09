@@ -26,17 +26,6 @@ export default function MainHeader() {
 
   return (
     <>
-      {/* Background image */}
-      {/* <div className="fixed w-full h-full top-0 left-0 -z-10">
-        <Image
-          src={backgroundImg}
-          alt="background image for entire page"
-          fill
-          priority
-          className="object-cover"
-        />
-      </div> */}
-
       {/* Header section */}
       <header
         className={`fixed top-0 left-0 w-full p-2 flex justify-between items-center z-50  ${
@@ -44,32 +33,8 @@ export default function MainHeader() {
         }`}
       >
         <Logo />
-        {/* <nav>
-          <ul className="flex gap-1">
-            <li>
-              <NavLink href="/jobs">Browse Jobs</NavLink>
-            </li>
-            <li>
-              <NavLink href="/candidate_dashboard">Apply for Jobs</NavLink>
-            </li>
-          </ul>
-        </nav> */}
-
         <nav>
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            {/* <a
-              href="https://flowbite.com/"
-              class="flex items-center space-x-3 rtl:space-x-reverse"
-            >
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                class="h-8"
-                alt="Flowbite Logo"
-              />
-              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Flowbite
-              </span>
-            </a> */}
             <button
               onClick={toggleMenu}
               type="button"
@@ -102,26 +67,40 @@ export default function MainHeader() {
               >
                 <ul className="space-y-2">
                   <li>
-                    <NavLink href="/jobs" className="text-black flex items-center whitespace-nowrap text-sm text-center" onClick={toggleMenu}>Browse Jobs</NavLink>
+                    <NavLink
+                      href="/jobs"
+                      className="text-black flex items-center whitespace-nowrap text-sm text-center"
+                      onClick={toggleMenu}
+                    >
+                      Browse Jobs
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink href="/candidate_dashboard" className="text-black text-sm flex items-center whitespace-nowrap text-center" onClick={toggleMenu}>
+                    <NavLink
+                      href="/candidate_dashboard"
+                      className="text-black text-sm flex items-center whitespace-nowrap text-center"
+                      onClick={toggleMenu}
+                    >
                       Apply for a Job
                     </NavLink>
                   </li>
                 </ul>
               </div>
             )}
-            <div
-              className="hidden sm:w-auto sm:flex gap-1"
-              id="navbar-default"
-            >
+            <div className="hidden sm:w-auto sm:flex gap-1" id="navbar-default">
               <ul className="font-medium flex p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                  <NavLink href="/jobs" className="text-[#ddd6cb]">Browse Jobs</NavLink>
+                  <NavLink href="/jobs" className="text-[#ddd6cb]">
+                    Browse Jobs
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink href="/candidate_dashboard" className="text-[#ddd6cb]">Apply for Jobs</NavLink>
+                  <NavLink
+                    href="/candidate_dashboard"
+                    className="text-[#ddd6cb]"
+                  >
+                    Apply for Jobs
+                  </NavLink>
                 </li>
               </ul>
             </div>

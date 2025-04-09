@@ -1,5 +1,4 @@
 'use server';
-
 import { firestore } from "@/app/firebase/clientApp";
 import { jobSchema } from "@/app/models/formSchema";
 import { addDoc, collection } from "firebase/firestore";
