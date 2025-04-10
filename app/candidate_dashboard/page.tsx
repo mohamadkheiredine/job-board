@@ -78,12 +78,12 @@ export default function CandidateDashboardPage() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="text-black">Name</FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
-                  <FormDescription>Your Name</FormDescription>
-                  <FormMessage />
+                  <FormDescription className="text-black">Your Name</FormDescription>
+                  <FormMessage className="text-red-500"/>
                 </FormItem>
               )}
             />
@@ -94,12 +94,12 @@ export default function CandidateDashboardPage() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-black">Email</FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
-                  <FormDescription>Your Email</FormDescription>
-                  <FormMessage />
+                  <FormDescription className="text-black">Your Email</FormDescription>
+                  <FormMessage className="text-red-500"/>
                 </FormItem>
               )}
             />
@@ -110,12 +110,12 @@ export default function CandidateDashboardPage() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel className="text-black">Title</FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
-                  <FormDescription>Your Job Title</FormDescription>
-                  <FormMessage />
+                  <FormDescription className="text-black">Your Job Title</FormDescription>
+                  <FormMessage className="text-red-500"/>
                 </FormItem>
               )}
             />
