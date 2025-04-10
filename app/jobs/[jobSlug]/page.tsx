@@ -7,23 +7,21 @@ import { notFound } from "next/navigation";
 export default async function jobDetailPage({
   params,
 }: {
-  params: Promise<{ jobSlug: string }>
+  params: Promise<{ jobSlug: string }>;
 }) {
   const slug = (await params).jobSlug;
-  console.log("the slug is: ", slug);
 
   const getJobBySlug = async (slug: string) => {
     try {
       const jobCollectionRef = collection(firestore, "jobs");
-  
+
       const q = query(jobCollectionRef, where("slug", "==", slug));
-  
+
       const querySnapshot = await getDocs(q);
-  
+
       if (!querySnapshot.empty) {
         const doc = querySnapshot.docs[0];
-        console.log("The job document fetched: ", doc.data());
-  
+
         return {
           id: doc.data().id as number,
           job_title: doc.data().job_title as string,
@@ -39,7 +37,6 @@ export default async function jobDetailPage({
       return null;
     }
   };
-  
 
   const job = await getJobBySlug(slug);
   if (!job) {
@@ -47,12 +44,12 @@ export default async function jobDetailPage({
   }
 
   return (
-    <>
-      <h1 className="text-center m-10 font-thin text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+    <div className="mt-31">
+      <h1 className="text-center m-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black mt-16">
         {job.job_title}
       </h1>
 
-      <p className="text-center m-10 font-thin text-xl sm:text-2xl lg:text-3xl">
+      <p className="text-center m-10 text-xl sm:text-2xl lg:text-3xl text-black">
         Location: {job.location}
       </p>
 
@@ -91,6 +88,6 @@ export default async function jobDetailPage({
           </Button>
         </Link>
       </div>
-    </>
+    </div>
   );
 }

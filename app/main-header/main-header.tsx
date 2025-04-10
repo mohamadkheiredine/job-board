@@ -38,7 +38,7 @@ export default function MainHeader() {
             <button
               onClick={toggleMenu}
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 cursor-pointer sm:hidden"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 cursor-pointer sm:hidden"
               aria-controls="mobile-menu"
               aria-expanded={menuOpen}
             >
@@ -63,7 +63,7 @@ export default function MainHeader() {
             {menuOpen && (
               <div
                 id="mobile-menu"
-                className="absolute top-19 right-3 z-50 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg shadow-lg p-4 w-[200px]"
+                className="absolute top-19 right-3 z-50 bg-white border rounded-lg shadow-lg p-4 w-[200px]"
               >
                 <ul className="space-y-2">
                   <li>
