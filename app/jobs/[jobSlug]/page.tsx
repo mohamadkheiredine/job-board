@@ -54,11 +54,11 @@ export default async function jobDetailPage({
       </p>
 
       <section className="text-center m-8 lg:m-12 xl:m-16">
-        <h2 className="font-thin text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-4">
+        <h2 className="font-thin text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-4 text-black">
           Job Description
         </h2>
 
-        <p className="text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed max-w-4xl mx-auto">
+        <p className="text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed max-w-4xl mx-auto text-black">
           As a valued member of the team, your role will involve contributing to
           various company projects, assisting in the day-to-day operations, and
           ensuring smooth workflow.
@@ -66,20 +66,20 @@ export default async function jobDetailPage({
       </section>
 
       <section className="text-center m-8 lg:m-12 xl:m-16">
-        <h2 className="font-thin text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-4">
+        <h2 className="font-thin text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-4 text-black">
           Job Benefits
         </h2>
 
         <ul className="list-none text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed max-w-4xl mx-auto">
-          <li>Competitive salary and performance bonuses.</li>
-          <li>Comprehensive health insurance coverage.</li>
-          <li>Flexible working hours and remote work options.</li>
-          <li>Generous vacation and paid time off.</li>
-          <li>Opportunities for professional growth and development.</li>
+          <li className="text-black">Competitive salary and performance bonuses.</li>
+          <li className="text-black">Comprehensive health insurance coverage.</li>
+          <li className="text-black">Flexible working hours and remote work options.</li>
+          <li className="text-black">Generous vacation and paid time off.</li>
+          <li className="text-black">Opportunities for professional growth and development.</li>
         </ul>
       </section>
       <div className="flex flex-col items-center text-center gap-3 my-8">
-        <p className="text-base sm:text-lg font-normal text-gray-700 max-w-lg leading-relaxed">
+        <p className="text-base sm:text-lg font-normal text-black max-w-lg leading-relaxed">
           Start a new {job.job_title} position by applying here
         </p>
         <Link href="/candidate_dashboard">
